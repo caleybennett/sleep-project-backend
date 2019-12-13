@@ -1,4 +1,3 @@
 class SleepSerializer < ActiveModel::Serializer
-  attributes :id, :hours, :exercise, :date, :food
-  belongs_to :user
+  attributes :id, :hours, :exercise, :date, :food, :user
 end

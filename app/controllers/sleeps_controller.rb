@@ -15,7 +15,7 @@ class SleepsController < ProtectedController
 
   # POST /sleeps
   def create
-    @sleep = current_user.sleeps.new(sleep_params)
+    @sleep = current_user.sleeps.build(sleep_params)
 
     if @sleep.save
       render json: @sleep, status: :created, location: @sleep
@@ -46,6 +46,6 @@ class SleepsController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def sleep_params
-      params.require(:sleep).permit(:hours, :exercise, :date, :food)
+      params.require(:sleep).permit(:hours, :exercise, :date, :food, :user_id)
     end
 end
